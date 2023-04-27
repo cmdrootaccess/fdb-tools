@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  foundationdb:
+    build: .
+    environment:
+      FDB_CLUSTER_FILE: /etc/foundationdb/fdb.cluster
+      FDB_NETWORKING_MODE: host
+    volumes:
+      - foundationdb-config:/etc/foundationdb/
+    ports:
+      - '127.0.0.1:4500:4500'
+volumes:
+  foundationdb-config: {}
